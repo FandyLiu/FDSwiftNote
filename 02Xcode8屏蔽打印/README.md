@@ -9,6 +9,19 @@ Xcode8里边`Edit Scheme-> Run -> Arguments`, 在`Environment Variables`里边�
 
 
 
-配置之后,一些像麦克风或者摄像头访问权限在 `info.plist` 中的一些key的配置可能`不会打印提醒`从崩溃
+配置之后,一些像麦克风或者摄像头访问权限在 `info.plist` 中的一些key的配置可能`不会打印提醒`从而崩溃
+
+项目打印提示类似于
+
+```
+This app has crashed because it attempted to access privacy-sensitive data without a usage description.  The app's Info.plist must contain an NSSpeechRecognitionUsageDescription key with a string value explaining to the user how the app uses this data.
+
+```
+
+文／游侠零零柒（简书作者）
+原文链接：http://www.jianshu.com/p/6d7ade246530
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
 
 ![](imgs/bengkui.png)
+
+遇到这些问题可以去[iOS10权限崩溃问题](../03iOS10权限崩溃问题/README.md)中查看如何配置
