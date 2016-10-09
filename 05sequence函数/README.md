@@ -155,9 +155,19 @@ var arr = [0,1,2,3,4,5,6,7,8,9,10]
 let abc = arr.filter { $0 % 2 == 0 }
 // [0, 2, 4, 6, 8, 10]
 ```
-- sequence.indices
+
+
+- sequence.index() sequence.indices
 
 ``` swift
+
+let students = ["Kofi", "Abena", "Peter", "Kweku", "Akosua"]
+if let i = students.index(where: { $0.hasPrefix("A") }) {
+    print("\(students[i]) starts with 'A'!")
+}
+// Prints "Abena starts with 'A'!"
+
+
 var c = MyFancyCollection([10, 20, 30, 40, 50])
 var i = c.startIndex
 while i != c.endIndex {
@@ -166,4 +176,61 @@ while i != c.endIndex {
 }
 // c == MyFancyCollection([2, 4, 6, 8, 10])
 
+```
+
+- sequence.joined()
+
+``` swift
+let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+let list = cast.joined(separator: ", ")
+print(list)
+// Prints "Vivien, Marlon, Kim, Karl"
+
+```
+
+- sequence.map
+``` swift
+let cast = ["Vivien", "Marlon", "Kim", "Karl"]
+let lowercaseNames = cast.map { $0.lowercaseString }
+// 'lowercaseNames' == ["vivien", "marlon", "kim", "karl"]
+let letterCounts = cast.map { $0.characters.count }
+// 'letterCounts' == [6, 6, 3, 4]
+```
+- sequence.reduce
+
+``` swift
+// 1
+let a = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"].reduce("") { $0 + $1 }
+// 2
+let numbers = [1, 2, 3, 4]
+let addTwo: (Int, Int) -> Int = { x, y in x + y }
+let numberSum = numbers.reduce(0, addTwo)
+// 'numberSum' == 10
+
+```
+- sequence.reduce
+
+``` swift
+let numbers = [3, 5, 7]
+for number in numbers.reversed() {
+    print(number)
+}
+// Prints "7"
+// Prints "5"
+// Prints "3"
+
+let reversedNumbers = Array(numbers.reversed())
+print(reversedNumbers)
+// Prints "[7, 5, 3]"
+
+```
+
+- sequence.starts(with:)
+
+``` swift
+let a = 1...3
+let b = 1...10
+
+print(b.starts(with: a))
+// Prints "true"
 ```
