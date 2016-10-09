@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="UTF-8">
-        <title>Glossary | FDSwiftNote</title>
+        <title>iOS10权限崩溃问题 | FDSwiftNote</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 1.0.3">
@@ -12,17 +12,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
     
     
     
+    <link rel="next" href="../04一些函数/README.html" />
     
     
-
-    
-    
+    <link rel="prev" href="../02Xcode8屏蔽打印/README.html" />
     
 
         
@@ -30,11 +29,11 @@
     <body>
         
         
-<link rel="stylesheet" href="gitbook/style.css">
+<link rel="stylesheet" href="../gitbook/style.css">
 
 
         
-    <div class="book"  data-level="" data-basepath="." data-revision="1475999410213">
+    <div class="book"  data-level="3" data-basepath=".." data-revision="1475999410350">
     
 
 <div class="book-summary">
@@ -55,7 +54,7 @@
         <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="./index.html">
+                    <a href="../index.html">
                         <i class="fa fa-check"></i>
                         
                          Introduction
@@ -69,7 +68,7 @@
         <li class="chapter " data-level="1" data-path="01新添关键字/README.html">
             
                 
-                    <a href="./01新添关键字/README.html">
+                    <a href="../01新添关键字/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>1.</b>
@@ -85,7 +84,7 @@
         <li class="chapter " data-level="2" data-path="02Xcode8屏蔽打印/README.html">
             
                 
-                    <a href="./02Xcode8屏蔽打印/README.html">
+                    <a href="../02Xcode8屏蔽打印/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>2.</b>
@@ -98,10 +97,10 @@
         </li>
     
         
-        <li class="chapter " data-level="3" data-path="03iOS10权限崩溃问题/README.html">
+        <li class="chapter active" data-level="3" data-path="03iOS10权限崩溃问题/README.html">
             
                 
-                    <a href="./03iOS10权限崩溃问题/README.html">
+                    <a href="../03iOS10权限崩溃问题/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>3.</b>
@@ -117,7 +116,7 @@
         <li class="chapter " data-level="4" data-path="04一些函数/README.html">
             
                 
-                    <a href="./04一些函数/README.html">
+                    <a href="../04一些函数/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>4.</b>
@@ -133,7 +132,7 @@
         <li class="chapter " data-level="5" data-path="05sequence函数/README.html">
             
                 
-                    <a href="./05sequence函数/README.html">
+                    <a href="../05sequence函数/README.html">
                         <i class="fa fa-check"></i>
                         
                             <b>5.</b>
@@ -226,33 +225,109 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >FDSwiftNote</a>
+        <a href="../" >FDSwiftNote</a>
     </h1>
 </div>
 
             <div class="page-wrapper" tabindex="-1">
                 <div class="page-inner">
                 
-
-
+                
+                    <section class="normal" id="section-gitbook_154">
+                    
+                        <h1 id="ios10">iOS10权限崩溃问题</h1>
+<h5 id="ios10appcrashios10">iOS10上，若你的项目访问了隐私数据，比如：相机，相册，通讯录等，app会直接Crash了，这是因为iOS10对用户的隐私做了进一步加强,在申请很多私有权限的时候都需要添加描述，这里我简单的记录了下解决方法。</h5>
+<ul>
+<li>方式一:</li>
+</ul>
+<p>在项目中找到<code>info.plist</code>文件。
+点击<code>Information Property List</code> 后边的加号，新添加一项。
+在新添加的<code>key</code>中输入 <code>Privacy</code> 可以迅速定位到这一权限系列，找到你需要的权限，修改后面的 value 就可以了（value内容可随意）。</p>
+<pre><code>NSBluetoothPeripheralUsageDescription          访问蓝牙
+NSCalendarsUsageDescription                    访问日历
+NSCameraUsageDescription                       相机
+NSPhotoLibraryUsageDescription                 相册
+NSContactsUsageDescription                     通讯录
+NSLocationAlwaysUsageDescription               始终访问位置
+NSLocationUsageDescription                     位置
+NSLocationWhenInUseUsageDescription            在使用期间访问位置
+NSMicrophoneUsageDescription                   麦克风
+NSAppleMusicUsageDescription                   访问媒体资料库
+NSHealthShareUsageDescription                  访问健康分享
+NSHealthUpdateUsageDescription                 访问健康更新
+NSMotionUsageDescription                       访问运动与健身
+NSRemindersUsageDescription                    访问提醒事项
+</code></pre><ul>
+<li>方式二:</li>
+</ul>
+<p>在项目中找到<code>info.plist</code>文件。
+对其右击选<code>Open As —&gt; Source Code</code>，以<code>Source Code</code>形式打开。
+添加相应的键值对即可</p>
+<pre><code>&lt;key&gt;NSVideoSubscriberAccountUsageDescription&lt;/key&gt;
+    &lt;string&gt;视频认证&lt;/string&gt;
+    &lt;key&gt;NSSpeechRecognitionUsageDescription&lt;/key&gt;
+    &lt;string&gt;语音识别&lt;/string&gt;
+    &lt;key&gt;NSSiriUsageDescription&lt;/key&gt;
+    &lt;string&gt;Siri使用&lt;/string&gt;
+    &lt;key&gt;NSRemindersUsageDescription&lt;/key&gt;
+    &lt;string&gt;访问提醒事项&lt;/string&gt;
+    &lt;key&gt;kTCCServiceMediaLibrary&lt;/key&gt;
+    &lt;string&gt;TV控制&lt;/string&gt;
+    &lt;key&gt;NSMotionUsageDescription&lt;/key&gt;
+    &lt;string&gt;运动权限&lt;/string&gt;
+    &lt;key&gt;NSMicrophoneUsageDescription&lt;/key&gt;
+    &lt;string&gt;麦克风权限&lt;/string&gt;
+    &lt;key&gt;NSAppleMusicUsageDescription&lt;/key&gt;
+    &lt;string&gt;苹果音乐&lt;/string&gt;
+    &lt;key&gt;NSLocationUsageDescription&lt;/key&gt;
+    &lt;string&gt;位置权限&lt;/string&gt;
+    &lt;key&gt;NSHomeKitUsageDescription&lt;/key&gt;
+    &lt;string&gt;HomeKit权限&lt;/string&gt;
+    &lt;key&gt;NSHealthUpdateUsageDescription&lt;/key&gt;
+    &lt;string&gt;健康应用&lt;/string&gt;
+    &lt;key&gt;NSHealthShareUsageDescription&lt;/key&gt;
+    &lt;string&gt;健康应用&lt;/string&gt;
+    &lt;key&gt;NSContactsUsageDescription&lt;/key&gt;
+    &lt;string&gt;通讯录&lt;/string&gt;
+    &lt;key&gt;NSCalendarsUsageDescription&lt;/key&gt;
+    &lt;string&gt;日历&lt;/string&gt;
+    &lt;key&gt;NSBluetoothPeripheralUsageDescription&lt;/key&gt;
+    &lt;string&gt;蓝牙&lt;/string&gt;
+    &lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
+    &lt;string&gt;相册&lt;/string&gt;
+    &lt;key&gt;NSCameraUsageDescription&lt;/key&gt;
+    &lt;string&gt;相机&lt;/string&gt;
+    &lt;key&gt;NSLocationAlwaysUsageDescription&lt;/key&gt;
+    &lt;string&gt;永久使用定位&lt;/string&gt;
+    &lt;key&gt;NSLocationWhenInUseUsageDescription&lt;/key&gt;
+    &lt;string&gt;应用使用的时候使用定位&lt;/string&gt;
+</code></pre>
+                    
+                    </section>
+                
+                
                 </div>
             </div>
         </div>
 
         
+        <a href="../02Xcode8屏蔽打印/README.html" class="navigation navigation-prev " aria-label="Previous page: Xcode8屏蔽打印"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../04一些函数/README.html" class="navigation navigation-next " aria-label="Next page: 一些函数"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="gitbook/app.js"></script>
+<script src="../gitbook/app.js"></script>
 
     
     <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
     
 
 <script>
