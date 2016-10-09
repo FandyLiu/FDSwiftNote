@@ -38,6 +38,45 @@ for (i, j) in enumerate(["A", "B"]) {
 }
 ```
 
+- zip
+
+``` swift
+// 1
+let words = ["one", "two", "three", "four"]
+let numbers = 1...4
+
+for (word, number) in zip(words, numbers) {
+    print("\(word): \(number)")
+}
+// Prints "one: 1"
+// Prints "two: 2
+// Prints "three: 3"
+// Prints "four: 4"
+
+let naturalNumbers = 1...Int.max
+let zipped = Array(zip(words, naturalNumbers))
+// zipped == [("one", 1), ("two", 2), ("three", 3), ("four", 4)]
+
+
+// 2
+let names: Set = ["Sofia", "Camilla", "Martina", "Mateo", "Nicolás"]
+var shorterIndices: [SetIndex<String>] = []
+for (i, name) in zip(names.indices, names) {
+    if name.characters.count <= 5 {
+        shorterIndices.append(i)
+    }
+}
+
+for i in shorterIndices {
+    print(names[i])
+}
+
+// Prints "Sofia"
+// Prints "Mateo"
+
+```
+
+
 - min max
 
 ``` swift
