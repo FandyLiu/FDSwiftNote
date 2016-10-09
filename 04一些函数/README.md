@@ -70,9 +70,21 @@ abs(-42) == 42
 abs(42) == 42
 ```
 
-- Array.contains
+- dump(object)：打印出某个对象object的所有信息
 
 ``` swift
+
+var languages = ["Swift", "Objective-C"]
+
+dump(languages)
+
+// Prints:
+
+// ▿ 2 elements
+
+// - [0]: Swift
+
+// - [1]: Objective-C
 
 ```
 
