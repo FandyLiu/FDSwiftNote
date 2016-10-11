@@ -33,7 +33,7 @@
 
 
         
-    <div class="book"  data-level="4" data-basepath=".." data-revision="1475999410350">
+    <div class="book"  data-level="4" data-basepath=".." data-revision="1476063196746">
     
 
 <div class="book-summary">
@@ -233,7 +233,7 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_155">
+                    <section class="normal" id="section-gitbook_139">
                     
                         <h1 id="">一些函数</h1>
 <ul>
@@ -268,6 +268,42 @@ a += sequence(first: <span class="hljs-number">3</span>, next: {$<span class="hl
     <span class="hljs-built_in">println</span>(<span class="hljs-string">"<span class="hljs-subst">\(i)</span>:<span class="hljs-subst">\(j)</span>"</span>)
 
 }
+</code></pre>
+<ul>
+<li>zip</li>
+</ul>
+<pre><code class="lang-swift"><span class="hljs-comment">// 1</span>
+<span class="hljs-keyword">let</span> words = [<span class="hljs-string">"one"</span>, <span class="hljs-string">"two"</span>, <span class="hljs-string">"three"</span>, <span class="hljs-string">"four"</span>]
+<span class="hljs-keyword">let</span> numbers = <span class="hljs-number">1</span>...<span class="hljs-number">4</span>
+
+<span class="hljs-keyword">for</span> (word, number) <span class="hljs-keyword">in</span> zip(words, numbers) {
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">"<span class="hljs-subst">\(word)</span>: <span class="hljs-subst">\(number)</span>"</span>)
+}
+<span class="hljs-comment">// Prints "one: 1"</span>
+<span class="hljs-comment">// Prints "two: 2</span>
+<span class="hljs-comment">// Prints "three: 3"</span>
+<span class="hljs-comment">// Prints "four: 4"</span>
+
+<span class="hljs-keyword">let</span> naturalNumbers = <span class="hljs-number">1</span>...<span class="hljs-type">Int</span>.<span class="hljs-built_in">max</span>
+<span class="hljs-keyword">let</span> zipped = <span class="hljs-type">Array</span>(zip(words, naturalNumbers))
+<span class="hljs-comment">// zipped == [("one", 1), ("two", 2), ("three", 3), ("four", 4)]</span>
+
+
+<span class="hljs-comment">// 2</span>
+<span class="hljs-keyword">let</span> names: <span class="hljs-type">Set</span> = [<span class="hljs-string">"Sofia"</span>, <span class="hljs-string">"Camilla"</span>, <span class="hljs-string">"Martina"</span>, <span class="hljs-string">"Mateo"</span>, <span class="hljs-string">"Nicolás"</span>]
+<span class="hljs-keyword">var</span> shorterIndices: [<span class="hljs-type">SetIndex</span>&lt;<span class="hljs-type">String</span>&gt;] = []
+<span class="hljs-keyword">for</span> (i, name) <span class="hljs-keyword">in</span> zip(names.<span class="hljs-built_in">indices</span>, names) {
+    <span class="hljs-keyword">if</span> name.characters.<span class="hljs-built_in">count</span> &lt;= <span class="hljs-number">5</span> {
+        shorterIndices.append(i)
+    }
+}
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> shorterIndices {
+    <span class="hljs-built_in">print</span>(names[i])
+}
+
+<span class="hljs-comment">// Prints "Sofia"</span>
+<span class="hljs-comment">// Prints "Mateo"</span>
 </code></pre>
 <ul>
 <li>min max</li>
