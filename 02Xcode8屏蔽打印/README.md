@@ -18,10 +18,6 @@ This app has crashed because it attempted to access privacy-sensitive data witho
 
 ```
 
-文／游侠零零柒（简书作者）
-原文链接：http://www.jianshu.com/p/6d7ade246530
-著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
-
 ![](imgs/bengkui.png)
 
 遇到这些问题可以去[iOS10权限崩溃问题](../03iOS10权限崩溃问题/README.md)中查看如何配置
