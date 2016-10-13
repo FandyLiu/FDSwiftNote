@@ -18,6 +18,7 @@ This app has crashed because it attempted to access privacy-sensitive data witho
 
 ```
 
+
 ![](imgs/bengkui.png)
 
 遇到这些问题可以去[iOS10权限崩溃问题](../03iOS10权限崩溃问题/README.md)中查看如何配置
