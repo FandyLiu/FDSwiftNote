@@ -94,7 +94,7 @@ let time = Measurement(value: 8, unit: UnitDuration.hours)
     + Measurement(value: 6, unit: UnitDuration.minutes)
     + Measurement(value: 17, unit: UnitDuration.seconds)
 
-// 由于类型不同不能相除,所以自定义除法overload除法
+// 由于类型不同不能相除,所以自定义除法,overload除法
 func / (lhs: Measurement<UnitLength>, rhs: Measurement<UnitDuration>) -> Measurement<UnitSpeed> {
     let quantity = lhs.converted(to: .meters).value / rhs.converted(to: .seconds).value
     let resultUnit = UnitSpeed.metersPerSecond
@@ -108,4 +108,10 @@ speed.converted(to: .kilometersPerHour)
 // → 13.1281383818845 km/h
 
 
+```
+
+---
+
+
+```
 ```
