@@ -112,6 +112,113 @@ speed.converted(to: .kilometersPerHour)
 
 ---
 
+UnitProduct 协议
+
+``` swift
+/// Describes the relation Self = Factor1 * Factor2.
+protocol UnitProduct {
+    associatedtype Factor1: Dimension
+    associatedtype Factor2: Dimension
+    associatedtype Product: Dimension // is always == Self
+
+    static func defaultUnitMapping() -> (Factor1, Factor2, Product)
+}
+
+
+extension UnitLength: UnitProduct {
+    typealias Factor1 = UnitSpeed
+    typealias Factor2 = UnitDuration
+    typealias Product = UnitLength
+
+    static func defaultUnitMapping() -> (UnitSpeed, UnitDuration, UnitLength) {
+        return (.metersPerSecond, .seconds, .meters)
+    }
+}
+
+// 重载乘法操作符
+func * <UnitType: UnitProduct> (lhs: Measurement<UnitType.Factor1>, rhs: Measurement<UnitType.Factor2>)
+    -> Measurement<UnitType> where UnitType: Dimension, UnitType == UnitType.Product {
+        let (leftUnit, rightUnit, resultUnit) = UnitType.defaultUnitMapping()
+        let quantity = lhs.converted(to: leftUnit).value
+            * rhs.converted(to: rightUnit).value
+        return Measurement(value: quantity, unit: resultUnit)
+}
+
+let speed = Measurement(value: 20, unit: UnitSpeed.kilometersPerHour)
+// → 20.0 km/h
+let time = Measurement(value: 2, unit: UnitDuration.hours)
+// → 2.0 hr
+
+//类型检查器还不能推断出返回值的类型，所以我们必须明确的指定其为 Measurement<UnitLength> 类型，我不能非常确定这是为什么。我尝试了 * 运算符泛型参数的各种约束，但还是不能让它正常工作。
+let distance: Measurement<UnitLength> = speed * time
+// → 40000.032 m
 
 ```
+* 让乘法可交换 重载其他操作符
+
+
+``` swift
+func * <UnitType: UnitProduct>(lhs: Measurement<UnitType.Factor2>, rhs: Measurement<UnitType.Factor1>)
+    -> Measurement<UnitType> where UnitType: Dimension, UnitType == UnitType.Product {
+        return rhs * lhs
+}
+
+let distance2: Measurement<UnitLength> = time * speed
+
+
+func / <UnitType: UnitProduct>(lhs: Measurement<UnitType>, rhs: Measurement<UnitType.Factor1>)
+    -> Measurement<UnitType.Factor2> where UnitType: Dimension, UnitType == UnitType.Product {
+        let (rightUnit, resultUnit, leftUnit) = UnitType.defaultUnitMapping()
+        let quantity = lhs.converted(to: leftUnit).value / rhs.converted(to: rightUnit).value
+        return Measurement(value: quantity, unit: resultUnit)
+}
+
+/// UnitProduct / Factor2 = Factor1
+func / <UnitType: UnitProduct>(lhs: Measurement<UnitType>, rhs: Measurement<UnitType.Factor2>)
+    -> Measurement<UnitType.Factor1> where UnitType: Dimension, UnitType == UnitType.Product {
+        let (resultUnit, rightUnit, leftUnit) = UnitType.defaultUnitMapping()
+        let quantity = lhs.converted(to: leftUnit).value / rhs.converted(to: rightUnit).value
+        return Measurement(value: quantity, unit: resultUnit)
+}
+
+let timeReversed = distance / speed
+// → 7200.0 s
+timeReversed.converted(to: .hours)
+// → 2.0 hr
+let speedReversed = distance / time
+// → 5.55556 m/s
+speedReversed.converted(to: .kilometersPerHour)
+// → 20.0 km/h
+
+
+```
+
+* 通过 5 行代码实现协议
+
+``` swift
+
+/// UnitElectricPotentialDifference = UnitElectricResistance * UnitElectricCurrent
+extension UnitElectricPotentialDifference: UnitProduct {
+    static func defaultUnitMapping() -> (UnitElectricResistance, UnitElectricCurrent, UnitElectricPotentialDifference) {
+        return (.ohms, .amperes, .volts)
+    }
+}
+
+let voltage = Measurement(value: 5, unit: UnitElectricPotentialDifference.volts)
+// → 5.0 V
+let current = Measurement(value: 500, unit: UnitElectricCurrent.milliamperes)
+// → 500.0 mA
+let resistance = voltage / current
+// → 10.0 Ω
+
+```
+
+- 在计算过程中保持单位
+
+
+到目前为止，我们仍然使用一个默认的单位映射作为计算结果的单位。比如说，UnitSpeed，UnitDuration 和 UnitLength 的映射是 (.metersPerSecond, .seconds, .meters)。这意味着 72 千米每 2 小时 将会在计算前被转换成 72000 米每 7200 秒。然后我们会将计算结果封装成 Measurement<UnitVelocity> 并且返回，它的单位将会是米每秒。
+
+
+``` swift
+
 ```

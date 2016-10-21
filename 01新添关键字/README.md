@@ -3,6 +3,7 @@
 
 ### mutating
 
+
 ---
 
 在Swift中，包含三种类型(type): structure,enumeration,class. 其中structure和enumeration是`值类型(value type)`,class是`引用类型(reference type)`.
@@ -88,7 +89,9 @@ struct SimpleStruct: ExampleProtocol {
 }
 
 enum SimpleEnum: ExampleProtocol {
+
     case First, Second, Third
+
     var simpleDescription: String {
         get {
             switch self {
@@ -101,13 +104,9 @@ enum SimpleEnum: ExampleProtocol {
             }
         }
 
-        set {
-            simpleDescription = newValue
-        }
     }
 
     mutating func adjust() {
-
     }
 }
 ```
