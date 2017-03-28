@@ -1,0 +1,6 @@
+framework module Pods_SwiftOpp {
+  umbrella header "Pods-SwiftOpp-umbrella.h"
+
+  export *
+  module * { export * }
+}
