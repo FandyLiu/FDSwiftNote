@@ -4,7 +4,7 @@
 //
 //  Created by QianTuFD on 2017/3/23.
 //  Copyright © 2017年 fandy. All rights reserved.
-//
+//  主页上面的滚动条
 
 import UIKit
 

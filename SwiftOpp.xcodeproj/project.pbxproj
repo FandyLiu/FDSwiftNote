@@ -21,6 +21,9 @@
 		DB4E93AA1E821BCA006B8EC7 /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4E93A91E821BCA006B8EC7 /* IntExtension.swift */; };
 		DB4E93AD1E8222FC006B8EC7 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4E93AC1E8222FC006B8EC7 /* Constant.swift */; };
 		DB5EC6041E83CEC500D51F3B /* HeadTitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC6031E83CEC500D51F3B /* HeadTitlesView.swift */; };
+		DB5FE2651E8A0242002ABBB7 /* SlidingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE2641E8A0242002ABBB7 /* SlidingView.swift */; };
+		DB5FE2691E8A04E7002ABBB7 /* NewHomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE2681E8A04E7002ABBB7 /* NewHomeAPI.swift */; };
+		DB5FE26D1E8A16A7002ABBB7 /* SliderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5FE26C1E8A16A7002ABBB7 /* SliderData.swift */; };
 		DB6E90491E7F81D400404494 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6E90481E7F81D400404494 /* BaseNavigationController.swift */; };
 		DB6E904B1E7F83E500404494 /* NewHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6E904A1E7F83E500404494 /* NewHomePageViewController.swift */; };
 		DB6E904D1E7F83F800404494 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6E904C1E7F83F800404494 /* MessageListViewController.swift */; };
@@ -1156,6 +1159,9 @@
 		DB4E93A91E821BCA006B8EC7 /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		DB4E93AC1E8222FC006B8EC7 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DB5EC6031E83CEC500D51F3B /* HeadTitlesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadTitlesView.swift; sourceTree = "<group>"; };
+		DB5FE2641E8A0242002ABBB7 /* SlidingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidingView.swift; sourceTree = "<group>"; };
+		DB5FE2681E8A04E7002ABBB7 /* NewHomeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomeAPI.swift; sourceTree = "<group>"; };
+		DB5FE26C1E8A16A7002ABBB7 /* SliderData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderData.swift; sourceTree = "<group>"; };
 		DB6E90481E7F81D400404494 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		DB6E904A1E7F83E500404494 /* NewHomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewHomePageViewController.swift; sourceTree = "<group>"; };
 		DB6E904C1E7F83F800404494 /* MessageListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
@@ -2358,6 +2364,7 @@
 			isa = PBXGroup;
 			children = (
 				DB42E7761E77E23B00E9214A /* UserModel.swift */,
+				DB5FE26C1E8A16A7002ABBB7 /* SliderData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2411,6 +2418,7 @@
 			children = (
 				DB42E7811E77F3FB00E9214A /* VersionManager.swift */,
 				DB6E98B01E7FE2D900404494 /* HttpMoyaUtil.swift */,
+				DB5FE2681E8A04E7002ABBB7 /* NewHomeAPI.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2435,6 +2443,7 @@
 			isa = PBXGroup;
 			children = (
 				DB5EC6031E83CEC500D51F3B /* HeadTitlesView.swift */,
+				DB5FE2641E8A0242002ABBB7 /* SlidingView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -4890,6 +4899,7 @@
 			files = (
 				DB42E74A1E77E17200E9214A /* ViewController.swift in Sources */,
 				DB42E77D1E77E52E00E9214A /* BaseViewController.swift in Sources */,
+				DB5FE2691E8A04E7002ABBB7 /* NewHomeAPI.swift in Sources */,
 				DB4E93AA1E821BCA006B8EC7 /* IntExtension.swift in Sources */,
 				DB5EC6041E83CEC500D51F3B /* HeadTitlesView.swift in Sources */,
 				DB85CBB21E88B51700964041 /* PrivateMeetingViewController.swift in Sources */,
@@ -4905,6 +4915,7 @@
 				DBF09E2A1E7BC039005C7608 /* BaseTableViewController.swift in Sources */,
 				DB85CBAE1E88B4F100964041 /* OrganizationSurveyViewController.swift in Sources */,
 				DB42E7481E77E17200E9214A /* AppDelegate.swift in Sources */,
+				DB5FE26D1E8A16A7002ABBB7 /* SliderData.swift in Sources */,
 				DB6E90491E7F81D400404494 /* BaseNavigationController.swift in Sources */,
 				DB6E904F1E7F841300404494 /* ReleaseViewController.swift in Sources */,
 				DB42E7821E77F3FB00E9214A /* VersionManager.swift in Sources */,
@@ -4914,6 +4925,7 @@
 				DBF09E321E7BE6D1005C7608 /* GuidePagesViewCell.swift in Sources */,
 				DB42E77F1E77F26600E9214A /* GuidePagesViewController.swift in Sources */,
 				DB6E904D1E7F83F800404494 /* MessageListViewController.swift in Sources */,
+				DB5FE2651E8A0242002ABBB7 /* SlidingView.swift in Sources */,
 				DB6E98B11E7FE2D900404494 /* HttpMoyaUtil.swift in Sources */,
 				DB85CBB41E88B52300964041 /* EssenceViewController.swift in Sources */,
 			);

@@ -4,7 +4,7 @@
 //
 //  Created by QianTuFD on 2017/3/17.
 //  Copyright © 2017年 fandy. All rights reserved.
-//
+//  引导页面的 cell
 
 import UIKit
 import FSPagerView
